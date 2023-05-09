@@ -10,4 +10,8 @@ description to all process what the program do:
 6. Parse prepared array from sorted objects to json format
 7. Write new json file with all sorted data
 
+<<<<<<< HEAD
 > run this program by command: node index.js
+=======
+> run this program by command: node index.js
+>>>>>>> 8ebd6b28932c9d895f33f7f5eb8300b066115bda
