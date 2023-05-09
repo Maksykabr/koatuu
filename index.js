@@ -28,13 +28,17 @@ function sort_levels(array, first_array, second_array, thirth_arrray, fourth_arr
         thirth_arrray.push(object);
       } else {
         fourth_array.push(object);
+        
       };
     }
     catch (err)
     {
       console.log(err)
     }
-    element++;
+    finally
+    {
+      element++;
+    };
   };
 };
 
@@ -49,12 +53,16 @@ function filter_array_elements(first_array, second_array, level, new_create, sor
       sortedArr = second_array.filter(obj => obj[`${level} рівень`] === object[`${level} рівень`]);
       object[`Масив елементів ${new_create} рівня`] = sortedArr;
       sorted_aray.push(object);
+      
     }
     catch(err)
     {
-      // console.log(err)
+      console.log(err)
+    }
+    finally
+    {
+      element++;
     };
-    element++;
     };
   };
 
@@ -71,19 +79,12 @@ fs.readFile(file, 'utf-8', function(error, data){
     filter_array_elements(first_sorted_level, second_prepared_levels, "Перший", "другого", prepared_objects);
 
     fs.writeFile(new_file, JSON.stringify(prepared_objects), function(error){
-      try
-      {
-        console.log("Finish");
-      }
-      catch
-      {
-        console.log(error);
-      }
+      if (error) throw error
     });
   }
   catch(error)
   {
     console.log(error);
-  }
+  };
 });
 
