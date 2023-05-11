@@ -15,9 +15,9 @@ var thirth_prepared_levels = [];
 var prepared_objects = [];
 
 function sort_levels(array, first_array, second_array, thirth_arrray, fourth_array){
-  var element = 0;
-  while (element <= array.length) {
-    object = array[element]
+  var step;
+  for (step = 0; step<= array.length; step++){
+    object = array[step]
     try
     {
       if (object['Другий рівень'] == '') {
@@ -34,20 +34,42 @@ function sort_levels(array, first_array, second_array, thirth_arrray, fourth_arr
     catch (err)
     {
       console.log(err)
-    }
-    finally
-    {
-      element++;
     };
   };
+
+  // var element = 0;
+  // while (element <= array.length) {
+  //   object = array[element]
+  //   try
+  //   {
+  //     if (object['Другий рівень'] == '') {
+  //       first_array.push(object);
+  //     } else if (object['Третій рівень'] == '') {
+  //       second_array.push(object);
+  //     } else if (object['Четвертий рівень'] == '') {
+  //       thirth_arrray.push(object);
+  //     } else {
+  //       fourth_array.push(object);
+        
+  //     };
+  //   }
+  //   catch (err)
+  //   {
+  //     console.log(err)
+  //   }
+  //   finally
+  //   {
+  //     element++;
+  //   };
+  // };
 };
 
 
 
 function filter_array_elements(first_array, second_array, level, new_create, sorted_aray ){
-  var element = 0;
-  while (element <= first_array.length){
-    object = first_array[element];
+  var step;
+  for(step = 0; step <= first_array.length; step++){
+    object = first_array[step];
     try
     {
       sortedArr = second_array.filter(obj => obj[`${level} рівень`] === object[`${level} рівень`]);
@@ -58,13 +80,9 @@ function filter_array_elements(first_array, second_array, level, new_create, sor
     catch(err)
     {
       console.log(err)
-    }
-    finally
-    {
-      element++;
-    };
     };
   };
+};
 
  
 fs.readFile(file, 'utf-8', function(error, data){
