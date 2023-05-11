@@ -36,32 +36,6 @@ function sort_levels(array, first_array, second_array, thirth_arrray, fourth_arr
       console.log(err)
     };
   };
-
-  // var element = 0;
-  // while (element <= array.length) {
-  //   object = array[element]
-  //   try
-  //   {
-  //     if (object['Другий рівень'] == '') {
-  //       first_array.push(object);
-  //     } else if (object['Третій рівень'] == '') {
-  //       second_array.push(object);
-  //     } else if (object['Четвертий рівень'] == '') {
-  //       thirth_arrray.push(object);
-  //     } else {
-  //       fourth_array.push(object);
-        
-  //     };
-  //   }
-  //   catch (err)
-  //   {
-  //     console.log(err)
-  //   }
-  //   finally
-  //   {
-  //     element++;
-  //   };
-  // };
 };
 
 
