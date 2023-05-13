@@ -8,54 +8,28 @@ var fourth_sorted_level = [];
 var second_prepared_levels = [];
 var thirth_prepared_levels = [];
 var prepared_objects = [];
-function sort_levels(array, first_array, second_array, thirth_arrray, fourth_array){
-  var element = 0;
-  while (element <= array.length) {
+function sort_levels(array, first_array, second_array, thirth_array, fourth_array){
+  for(var element in array){
     object = array[element]
-    try
-    {
-      if (object['Другий рівень'] == '') {
-        first_array.push(object);
+    if (object['Другий рівень'] == '') {
+      first_array.push(object);
       } else if (object['Третій рівень'] == '') {
         second_array.push(object);
       } else if (object['Четвертий рівень'] == '') {
-        thirth_arrray.push(object);
+        thirth_array.push(object);
       } else {
         fourth_array.push(object);
-
       };
-    }
-    catch (err)
-    {
-      console.log(err)
-    }
-    finally
-    {
-      element++;
-    };
   };
 };
 
 function filter_array_elements(first_array, second_array, level, new_create, sorted_aray ){
-  var element = 0;
-  while (element <= first_array.length){
+  for (element in first_array){
     object = first_array[element];
-    try
-    {
-      sortedArr = second_array.filter(obj => obj[`${level} рівень`] === object[`${level} рівень`]);
+    sortedArr = second_array.filter(obj => obj[`${level} рівень`] === object[`${level} рівень`]);
       object[`Масив елементів ${new_create} рівня`] = sortedArr;
       sorted_aray.push(object);
-
-    }
-    catch(err)
-    {
-      console.log(err);
-    }
-    finally
-    {
-      element++;
-    };
-    };
+  };
   };
 
  
@@ -69,14 +43,7 @@ fs.readFile(file, 'utf-8', function(error, data){
     filter_array_elements(first_sorted_level, second_prepared_levels, "Перший", "другого", prepared_objects);
 
     fs.writeFile(new_file, JSON.stringify(prepared_objects), function(error){
-      try
-      {
-        console.log("Finish");
-      }
-      catch
-      {
-        console.log(error);
-      }
+      console.log("Finish");
       if (error) throw error
     });
   }
