@@ -24,7 +24,7 @@ function sort_levels(array, first_array, second_array, thirth_array, fourth_arra
 };
 
 function filter_array_elements(first_array, second_array, level, new_create, sorted_aray ){
-  for (element in first_array){
+  for (var element in first_array){
     object = first_array[element];
     sortedArr = second_array.filter(obj => obj[`${level} рівень`] === object[`${level} рівень`]);
       object[`Масив елементів ${new_create} рівня`] = sortedArr;
